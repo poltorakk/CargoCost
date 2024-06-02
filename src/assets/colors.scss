@@ -1,0 +1,135 @@
+:root {
+  --yellow-gold-50: #ffffe7;
+  --yellow-gold-100: #fffeca;
+  --yellow-gold-200: #ffeca7;
+  --yellow-gold-300: #ffd170;
+  --yellow-gold-400: #e8bd6a;
+  --yellow-gold-500: #ccb256;
+  --yellow-gold-600: #b59a36;
+  --yellow-gold-700: #997d1a;
+
+  --brown-gold-50: #f5efea;
+  --brown-gold-100: #dbcfc3;
+  --brown-gold-200: #d5bda5;
+  --brown-gold-300: #d1a77b;
+  --brown-gold-400: #a68562;
+  --brown-gold-500: #796149;
+  --brown-gold-600: #584634;
+  --brown-gold-700: #3d3226;
+
+  --pink-gold-50: #ffdcd5;
+  --pink-gold-100: #f5bdb3;
+  --pink-gold-200: #e6a69c;
+  --pink-gold-300: #bd817a;
+  --pink-gold-400: #9e615a;
+  --pink-gold-500: #93463d;
+  --pink-gold-600: #6b2922;
+  --pink-gold-700: #4e1812;
+
+  --blue-50: #ecefff;
+  --blue-100: #c4cdff;
+  --blue-200: #9eadff;
+  --blue-300: #778af4;
+  --blue-400: #5d74f1;
+  --blue-500: #514cdb;
+  --blue-600: #3632b4;
+  --blue-700: #1d198c;
+
+  --red-50: #ffeeeb;
+  --red-100: #ffd4ce;
+  --red-200: #ffb5ab;
+  --red-300: #ff9183;
+  --red-400: #ff6c58;
+  --red-500: #ff432a;
+  --red-600: #e4351e;
+  --red-700: #a82615;
+
+  --green-50: #ebfff2;
+  --green-100: #d7ffe5;
+  --green-200: #b8f8ce;
+  --green-300: #99e8b4;
+  --green-400: #69d38d;
+  --green-500: #41be6c;
+  --green-600: #25a953;
+  --green-700: #188b40;
+
+  --white: #ffffff;
+  --letters: #2c2c2b;
+  --light-gray: #bbbbbb;
+  --lines: #959595;
+  --gray: #707070;
+  --bars: #2a2a2a;
+  --background: #101010;
+  --black: #000000;
+
+  --darkact: #495a13;
+  --action: #6e7433;
+  --swact: #778a39;
+  --shaw: #ccd5ae;
+  --back: #e9edc9;
+  --title: #fefae0;
+  --nowhite: #fffcee;
+
+  --yellow-gold-stripe: linear-gradient(
+    104.04deg,
+    #997d1a 0%,
+    #e8bd6a 36.4%,
+    #ffeca7 51.9%,
+    #ffd170 66.4%,
+    #b59936 100%
+  );
+  --yellow-gold-point: radial-gradient(
+    67% 92% at 4% 92%,
+    #ffeca7 0%,
+    #ffd170 9.08%,
+    #ccb256 32.02%,
+    #997d1a 100%
+  );
+  --yellow-gold-dark: radial-gradient(
+    69.5% 134.47% at 5.5% 92%,
+    #ffd170 0%,
+    #e8bd6a 13.02%,
+    #997d1a 33.9%,
+    #3d3226 100%
+  );
+
+  --brown-gold-stripe: linear-gradient(
+    104.04deg,
+    #a68562 0%,
+    #d1a77b 36.4%,
+    #dbc0a3 51.9%,
+    #a68562 65.4%,
+    #3d3226 100%
+  );
+  --brown-gold-point: radial-gradient(
+    67.5% 95% at 3.5% 95%,
+    #dbc0a3 0%,
+    #d1a77b 11.06%,
+    #a68562 28.21%,
+    #584634 100%
+  );
+
+  --pink-gold-stripe: linear-gradient(
+    104.04deg,
+    #6b2922 0%,
+    #bd817a 36.4%,
+    #f5bdb3 51.9%,
+    #e6a69c 66.4%,
+    #93463d 100%
+  );
+  --pink-gold-point: radial-gradient(
+    65% 93.82% at 6% 88%,
+    #f5bdb3 0%,
+    #bd817a 18.4%,
+    #9e615a 34.4%,
+    #6b2922 100%
+  );
+
+  --light-point: radial-gradient(
+    76.5% 148.37% at 95% 9%,
+    #a68562 0%,
+    #796149 6.4%,
+    #3d3226 38.4%,
+    #2a2a2a 100%
+  );
+}
