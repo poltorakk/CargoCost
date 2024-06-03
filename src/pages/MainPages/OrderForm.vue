@@ -29,7 +29,9 @@ const form = useForm({
   phoneNumber: "",
 });
 //Функция отправки данных
-const submit = () => {};
+const submit = () => {
+  console.log(form.loadingAddress);
+};
 </script>
 <template>
   <div class="allFormStyle">
@@ -98,7 +100,6 @@ const submit = () => {};
             placeholder="+7-ххх-ххх-ххх"
             Inputype="text"
             title="Телефон"
-            v-mask="'+7-###-###-##-##'"
             v-model="form.phoneNumber"
           ></IntTextInput>
           <span>{{ form.phoneNumber }}</span>

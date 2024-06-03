@@ -15,6 +15,8 @@
               :type="inputType"
               class="int-text-input__input text-normal-regular"
               :placeholder="getPlaceholder()"
+              :value="modelValue"
+              @input="$emit('update:modelValue', $event.target.value)"
             />
           </div>
         </div>
