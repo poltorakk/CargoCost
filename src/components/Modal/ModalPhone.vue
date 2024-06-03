@@ -1,37 +1,39 @@
 <script setup>
-import { ref } from "vue";
-import IntTextInput from "@/components/IntTextInput.vue";
+import { ref, defineExpose } from "vue";
+import CopyButton from "@/components/CopyButton.vue";
 
 const isVisible = ref(false);
-const phoneNumber = ref("");
 
-const openModal = () => {
+const openModalPhone = () => {
   isVisible.value = true;
+  console.log(isVisible.value);
 };
 
-const closeModal = () => {
+const closeModalPhone = () => {
   isVisible.value = false;
+  console.log("tired" + isVisible.value);
 };
+
+// Экспорт функций для использования в родительских компонентах
+defineExpose({
+  openModalPhone,
+});
 </script>
 <template>
   <div
     class="background-modal"
     v-if="isVisible"
     :class="{ blurred: isVisible }"
+    @click.self="closeModalPhone()"
   >
     <div class="modal-content">
-      <span class="close-button" @click="closeModal">&times;</span>
+      <div class="title">Позвонить</div>
+      <span class="close-button" @click="closeModalPhone()">&times;</span>
       <div class="main-content text-normal-request">
-        <div class="main-content__title">Обратный звонок</div>
-        <div class="main-content__form">
-          <IntTextInput
-            placeholder="+7-ххх-ххх-ххх"
-            Inputype="text"
-            title="Телефон"
-            v-model="phoneNumber"
-            v-mask="'+7-###-###-##-##'"
-          ></IntTextInput>
-        </div>
+        <CopyButton number="+7 (978) 980-04-12"></CopyButton>
+        <div class="text-normal-request">Скопируйте один из номеров</div>
+        <CopyButton number="+7 (978) 972-67-90"></CopyButton>
+        <div class="text-normal-request">Позвоните нам</div>
       </div>
     </div>
   </div>
@@ -72,13 +74,8 @@ const closeModal = () => {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   width: 300px;
   max-width: 80%;
-  text-align: center;
   position: relative;
   top: 250px;
-  &__title {
-    border: 1px solid var(--darkact);
-    border-bottom: transparent;
-  }
 }
 .close-button {
   color: var(--letters);
@@ -93,7 +90,18 @@ const closeModal = () => {
   text-decoration: none;
   cursor: pointer;
 }
+.title {
+  padding: 15px;
+  background-color: var(--back);
+  border: 1px solid var(--darkact);
+  border-bottom: transparent;
+  font-size: 25px;
+  margin: 5px;
+}
 .main-content {
   background-color: var(--white);
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 </style>

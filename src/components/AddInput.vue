@@ -19,7 +19,8 @@
               type="number"
               class="int-text-input__input text-normal-regular"
               :placeholder="placeholder"
-              v-model="inputValue"
+              :value="modelValue"
+              @input="$emit('update:modelValue', $event.target.value)"
             />
           </div>
         </div>
@@ -45,20 +46,32 @@ export default {
       type: String,
       default: "",
     },
+    modelValue: {
+      type: Number,
+      required: true,
+    },
   },
-  setup() {
-    const inputValue = ref(0);
+  setup(props, { emit }) {
+    const localValue = ref(props.modelValue);
+
+    const handleInput = (event) => {
+      localValue.value = event.target.value;
+      emit("update:modelValue", localValue.value);
+    };
 
     const increment = () => {
-      inputValue.value += 1;
+      localValue.value = Number(localValue.value) + 1;
+      emit("update:modelValue", localValue.value);
     };
 
     const decrement = () => {
-      inputValue.value -= 1;
+      localValue.value = Number(localValue.value) - 1;
+      emit("update:modelValue", localValue.value);
     };
 
     return {
-      inputValue,
+      localValue,
+      handleInput,
       increment,
       decrement,
     };

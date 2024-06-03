@@ -1,26 +1,15 @@
 <script setup>
-import { defineAsyncComponent, ref } from "vue";
-const SeparatyLine = defineAsyncComponent(() =>
-  import("@/components/SeparatyLine")
-);
-const DropdownMenu = defineAsyncComponent(() =>
-  import("@/components/DropdownMenu")
-);
-
+import { ref } from "vue";
 import ModalPhone from "@/components/Modal/ModalPhone.vue";
+import SeparatyLine from "@/components/SeparatyLine";
+import DropdownMenu from "@/components/DropdownMenu";
 
-const dropdownitem = ref([
-  "Москва",
-  "Севастополь",
-  "Санкт-Петербург",
-  "Казань",
-  "Новосибирск",
-]);
+const dropdownitem = ref(["Москва", "Севастополь", "Казань", "Новосибирск"]);
 
 const modal = ref(null);
 
-const ChildopenModal = () => {
-  modal.value.openModal();
+const openModalPhone = () => {
+  modal.value.openModalPhone();
 };
 </script>
 
@@ -38,7 +27,7 @@ const ChildopenModal = () => {
         icon="Map.svg"
       ></DropdownMenu>
       <span class="text-normal-request Header__People"> Людям </span>
-      <div class="Header__RightSide" @click="ChildopenModal">
+      <div class="Header__RightSide" @click="openModalPhone()">
         <div class="Header__Phones text-normal-request">
           +7 (978) 980-04-12
           <span class="Header__Phone text-normal-request"> Бесплатно </span>

@@ -1,4 +1,5 @@
 <script setup>
+import { useForm } from "@inertiajs/vue3";
 import CalendarSelect from "@/components/CalendarSelect.vue";
 import SummaryButton from "@/components/SummaryButton.vue";
 import { defineAsyncComponent } from "vue";
@@ -16,25 +17,55 @@ const CardAdress = defineAsyncComponent(() =>
   import("@/components/CardAdress")
 );
 const DropOptions = ["Онлайн", "Наличные"];
+
+const form = useForm({
+  loadingAddress: "",
+  unloadingAddress: "",
+  selectedOption: "",
+  loaderCount: "",
+  selectedDate: "",
+  paymentMethod: "",
+  durationHours: "",
+  phoneNumber: "",
+});
+//Функция отправки данных
+const submit = () => {
+  console.log(form.loadingAddress);
+};
 </script>
 <template>
   <div class="allFormStyle">
     <div class="titleForm text-normal-regular">Оформить заказ</div>
     <div class="formStyleDiv">
-      <form class="formStyle">
+      <form class="formStyle" @submit.prevent="submit">
         <br /><br />
         <div class="formStyle__inputAdress">
-          <CardAdress title="Введите" placeholder="Адрес погрузки"></CardAdress>
-          <CardAdress title="Введите" placeholder="Адрес выгрузки"></CardAdress>
+          <CardAdress
+            title="Введите"
+            placeholder="Адрес погрузки"
+            class="formStyle__AdressCard"
+            v-model="form.loadingAddress"
+          ></CardAdress
+          ><span>{{ form.loadingAddress }}</span>
+          <CardAdress
+            title="Введите"
+            placeholder="Адрес выгрузки"
+            class="formStyle__AdressCard"
+            v-model="form.unloadingAddress"
+          ></CardAdress
+          ><span>{{ form.unloadingAddress }}</span>
         </div>
         <DropdownImg
           buttonTextProp="Любая газель"
           buttonTextProp2="Реактивная подача 15 мин"
           :options="DropOptions"
           showIcon="true"
+          v-model="form.typeCar"
         ></DropdownImg>
+        <span>{{ form.typeCar }}</span>
         <div class="formStyle__countTime">
-          <AddInput title="Грузчики"></AddInput>
+          <AddInput title="Грузчики" v-model="form.loaderCount"></AddInput>
+          <span>{{ form.loaderCount }}</span>
           <CalendarSelect
             :selectedDates="{ date: selectedDate }"
             :computedTitle="computedTitle"
@@ -42,8 +73,10 @@ const DropOptions = ["Онлайн", "Наличные"];
             buttonType="default"
             buttonSize="large"
             icon="Calendar.svg"
+            v-model="form.selectedDate"
           >
           </CalendarSelect>
+          <span>{{ form.selectedDate }}</span>
         </div>
         <div class="formStyle__payDay">
           <DropdownMenu
@@ -51,8 +84,15 @@ const DropOptions = ["Онлайн", "Наличные"];
             :options="DropOptions"
             showIcon="true"
             icon="Hochel.svg"
+            v-model="form.paymentMethod"
           ></DropdownMenu>
-          <AddInput title="Время (часы)"></AddInput>
+          <span>{{ form.paymentMethod }}</span>
+
+          <AddInput
+            title="Время (часы)"
+            v-model="form.durationHours"
+          ></AddInput>
+          <span>{{ form.durationHours }}</span>
         </div>
 
         <div class="formStyle__submitDiv">
@@ -60,9 +100,10 @@ const DropOptions = ["Онлайн", "Наличные"];
             placeholder="+7-ххх-ххх-ххх"
             Inputype="text"
             title="Телефон"
-            v-model="phoneNumber"
-            v-mask="'+7-###-###-##-##'"
+            v-model="form.phoneNumber"
           ></IntTextInput>
+          <span>{{ form.phoneNumber }}</span>
+
           <SummaryButton></SummaryButton>
         </div>
       </form>
@@ -70,8 +111,6 @@ const DropOptions = ["Онлайн", "Наличные"];
   </div>
 </template>
 <style lang="scss" scoped>
-.allFormStyle {
-}
 .formStyleDiv {
   background-color: var(--fkwhite);
   border-bottom-left-radius: 12px;
@@ -93,6 +132,9 @@ const DropOptions = ["Онлайн", "Наличные"];
   display: flex;
   flex-direction: column;
   margin: 4px;
+  &__AdressCard {
+    width: 50%;
+  }
   &__countTime {
     display: flex;
     gap: 5px;
@@ -100,8 +142,6 @@ const DropOptions = ["Онлайн", "Наличные"];
   }
   &__inputAdress {
     display: flex;
-    margin: 4px;
-    width: 91%;
   }
   &__payDay {
     align-items: center;
@@ -117,6 +157,7 @@ const DropOptions = ["Онлайн", "Наличные"];
       var(--white),
       rgba(119, 138, 57, 0.5)
     );
+    align-items: center;
     border-radius: 15px;
     border: 1px solid var(--action);
     padding: 20px 24px;

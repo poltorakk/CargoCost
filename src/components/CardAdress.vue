@@ -1,5 +1,5 @@
 <template>
-  <div class="cardInputBefore__icon-div" @click="openModal">
+  <div class="cardInputBefore__icon-div">
     <div class="cardInputBefore__icon"></div>
   </div>
   <div
@@ -9,7 +9,11 @@
   >
     <div class="cardInput__text text-normal-regular">
       <div class="cardInput__title">{{ title }}</div>
-      <input class="cardInput__placeholder" :value="placeholder" />
+      <input
+        class="cardInput__placeholder"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
     </div>
   </div>
   <ModalAdress ref="modal" />
@@ -34,6 +38,10 @@ export default {
     CardInputTime: {
       type: Boolean,
       required: "true",
+    },
+    modelValue: {
+      type: String,
+      required: true,
     },
   },
   methods: {
