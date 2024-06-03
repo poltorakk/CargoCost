@@ -3,6 +3,7 @@
     class="background-modal"
     v-if="isVisible"
     :class="{ blurred: isVisible }"
+    @click.self="closeModal"
   >
     <div class="modal-content">
       <span class="close-button" @click="closeModal">&times;</span>

@@ -1,5 +1,5 @@
 <template>
-  <div class="cardInputBefore__icon-div" @click="openModal">
+  <div class="cardInputBefore__icon-div">
     <div class="cardInputBefore__icon"></div>
   </div>
   <div
