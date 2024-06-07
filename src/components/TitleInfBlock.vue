@@ -1,5 +1,6 @@
 <template>
   <div class="TitleInfBlock">{{ title }}</div>
+  <br />
 </template>
 <script>
 export default {

@@ -100,6 +100,7 @@ const submit = () => {
             placeholder="+7-ххх-ххх-ххх"
             Inputype="text"
             title="Телефон"
+            v-mask="'+7-###-###-##-##'"
             v-model="form.phoneNumber"
           ></IntTextInput>
           <span>{{ form.phoneNumber }}</span>

@@ -32,6 +32,7 @@ body,
   align-items: center;
   justify-content: space-between;
   padding: 15px 15px;
+  height: 44px;
   &__text {
     color: var(--darkact);
   }

@@ -15,10 +15,6 @@ const openModalPhone = () => {
 
 <template>
   <div class="Header">
-    <div class="Header__City_Logo">
-      <img :src="require('@/assets/img/Logo.svg')" class="Header__logo" />
-      <!-- <DropdownMenu buttonTextProp="Город"></DropdownMenu> -->
-    </div>
     <div class="Header__NavigationMenu">
       <DropdownMenu
         buttonTextProp="Севастополь"
@@ -46,7 +42,26 @@ const openModalPhone = () => {
       <!-- <SecondaryButton buttonText="Войти" secondURL="/assets/icons/LogoCompany.svg" firstURL="/assets/icons/LogoCompany.svg"></SecondaryButton> -->
     </div>
   </div>
+
   <SeparatyLine></SeparatyLine>
+
+  <div class="Header-bottom">
+    <nav class="router">
+      <div class="Header-bottom__City_Logo">
+        <img
+          :src="require('@/assets/img/Logo.svg')"
+          class="Header-bottom__logo"
+        />
+      </div>
+      <router-link to="/" class="router__item text-normal-regular"
+        >Главная</router-link
+      >
+      <router-link to="/about" class="router__item text-normal-regular"
+        >О компании</router-link
+      >
+    </nav>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -65,10 +80,6 @@ body,
     justify-content: center;
     align-items: center;
     gap: 5px;
-  }
-  &__logo {
-    height: 60px;
-    width: 150px;
   }
   &__RightSide {
     margin-left: 45%;
@@ -109,6 +120,23 @@ body,
     border-radius: 10px;
     display: flex;
     justify-content: center;
+  }
+}
+.router {
+  margin-left: 5%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  &__item {
+    font-size: 20px;
+    color: var(--letters);
+    text-decoration: none;
+  }
+}
+.Header-bottom {
+  &__logo {
+    height: 60px;
+    width: 150px;
   }
 }
 </style>

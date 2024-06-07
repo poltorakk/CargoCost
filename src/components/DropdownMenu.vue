@@ -254,7 +254,6 @@ export default {
     position: relative;
     margin: 1px 0;
     display: flex;
-    height: 20px;
     list-style-type: none;
     cursor: pointer;
     justify-content: space-between;
