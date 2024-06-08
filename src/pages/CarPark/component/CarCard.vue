@@ -113,7 +113,8 @@ export default {
   gap: 5px;
   align-items: center;
   height: 450px;
-  width: 80%;
+  width: 55%;
+  margin: 0 auto;
   &__div-icon {
     padding: 16px 16px;
     border-radius: 12px;

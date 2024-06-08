@@ -6,9 +6,8 @@
     @click.self="closeModal"
   >
     <div class="modal-content">
+      <span class="close-button" @click="closeModal">&times;</span>
       <form class="modal-form">
-        <span class="close-button" @click="closeModal">&times;</span>
-        <PrimaryButton></PrimaryButton>
         <div class="map-container"></div>
       </form>
     </div>
@@ -57,7 +56,6 @@ export default {
   width: 100%;
   height: 100%;
   overflow: auto;
-  backdrop-filter: blur(5px);
 
   &.blurred {
     &::after {
@@ -79,16 +77,6 @@ export default {
 }
 .modal-content {
   z-index: 9;
-  margin: 0 auto;
-  width: max-content;
-  height: max-content;
-  border-radius: 16px;
-}
-.modal-form {
-  width: max-content;
-  height: max-content;
-  border-radius: 16px;
-  background-color: var(--white);
 }
 .close-button {
   color: var(--letters);

@@ -50,11 +50,12 @@
                     : item.name || item
                 }}
               </span>
-
-              <img
-                :src="require('@/assets/img/GruzList.svg')"
+              <div
+                :style="{
+                  'background-image': `url(${require(`@/assets/img/${icon}`)})`,
+                }"
                 class="dropdown-menu__icon-logo2"
-              />
+              ></div>
             </div>
           </li>
         </ul>
@@ -131,12 +132,6 @@ export default {
   computed: {
     iconURL() {
       return "url('" + this.iconPath + "')";
-    },
-    iconPath() {
-      if (this.icon === "") {
-        return;
-      }
-      return "/assets/icons/" + this.icon;
     },
   },
   methods: {

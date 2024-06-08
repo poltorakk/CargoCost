@@ -24,13 +24,13 @@ const openModalPhone = () => {
       ></DropdownMenu>
       <span class="text-normal-request Header__People"> Людям </span>
       <div class="Header__RightSide" @click="openModalPhone()">
-        <div class="Header__Phones text-normal-request">
-          +7 (978) 980-04-12
-          <span class="Header__Phone text-normal-request"> Бесплатно </span>
-        </div>
-        <div class="Header__Phones text-normal-request">
+        <div
+          class="Header__Phones text-normal-request no-underline hover:underline hover:decoration-1"
+        >
+          <span class="Header__Phone text-normal-request no-underline">
+            Круглосуточно
+          </span>
           +7 (978) 972-67-90
-          <span class="Header__Phone text-normal-request"> Круглосуточно </span>
         </div>
         <div class="Header__Phone-button">
           <img :src="require('@/assets/icons/Phone.svg')" />
@@ -48,16 +48,20 @@ const openModalPhone = () => {
   <div class="Header-bottom">
     <nav class="router">
       <div class="Header-bottom__City_Logo">
-        <img
-          :src="require('@/assets/img/Logo.svg')"
-          class="Header-bottom__logo"
-        />
+        <router-link to="/">
+          <img
+            :src="require('@/assets/img/Logo.svg')"
+            class="Header-bottom__logo"
+        /></router-link>
       </div>
       <router-link to="/" class="router__item text-normal-regular"
         >Главная</router-link
       >
       <router-link to="/about" class="router__item text-normal-regular"
         >О компании</router-link
+      >
+      <router-link to="/car" class="router__item text-normal-regular"
+        >Наш Автопарк</router-link
       >
     </nav>
     <router-view></router-view>
@@ -84,7 +88,7 @@ body,
   &__RightSide {
     margin-left: 45%;
     display: flex;
-    gap: 20px;
+    gap: 50px;
     justify-content: end;
     cursor: pointer;
   }
@@ -107,12 +111,15 @@ body,
     font-size: 24px;
     justify-content: center;
     flex-direction: column;
+    cursor: pointer;
   }
   &__Phone {
     font-weight: normal;
     color: var(--action);
+    text-decoration: none !important;
   }
   &__Phone-button {
+    margin-top: 5%;
     padding: 5px 5px;
     background: var(--action);
     width: 40px;

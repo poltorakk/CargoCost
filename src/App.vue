@@ -19,4 +19,13 @@ body,
   margin: 0px 200px;
   padding: 0px 50px;
 }
+// Media query for screens up to 1200px
+@media (max-width: 1200px) {
+  html,
+  body,
+  #app {
+    margin: 0px auto;
+    padding: 0px 0px;
+  }
+}
 </style>
