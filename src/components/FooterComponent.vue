@@ -41,6 +41,7 @@ body,
   background-color: var(--white);
 }
 .Footer {
+  margin-top: 25px;
   border-top: 1px solid var(--darkact);
   height: 200px;
   position: relative;

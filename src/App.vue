@@ -5,9 +5,16 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import HeaderStyle from "@/components/HeaderStyle";
 import FooterComponent from "@/components/FooterComponent";
+export default {
+  name: "App",
+  components: {
+    HeaderStyle,
+    FooterComponent,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

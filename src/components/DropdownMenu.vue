@@ -147,9 +147,8 @@ export default {
   flex-direction: column;
   gap: 10px;
   color: var(--letters);
-
   &__small {
-    min-width: 200px;
+    min-width: 150px;
   }
 
   &__medium {

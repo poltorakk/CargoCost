@@ -61,7 +61,7 @@ export default {
   padding: 10px 20px;
   justify-content: space-between;
   height: auto;
-  width: 100%;
+  width: 150px;
   margin-right: 2%;
   &__text {
     font-size: 14px;
@@ -75,7 +75,8 @@ export default {
   }
   &__title {
     color: var(--letters);
-    font-weight: bold;
+    font-size: 13px;
+    line-height: 100%;
   }
 }
 .cardInputBefore {
@@ -87,7 +88,7 @@ export default {
     background-color: var(--nowhite);
     align-items: center;
     display: flex;
-    width: 10%;
+    width: 50px;
     justify-content: center;
     border-right-width: 0px;
     height: auto;

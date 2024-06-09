@@ -45,14 +45,12 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
         <br /><br />
         <div class="formStyle__inputAdress">
           <CardAdress
-            title="Введите"
-            placeholder="Адрес погрузки"
+            title="Выберите адрес погрузки"
             class="formStyle__AdressCard sm:text-lg md:text-xl lg:text-2xl"
             v-model="form.loadingAddress"
           ></CardAdress>
           <CardAdress
-            title="Введите"
-            placeholder="Адрес выгрузки"
+            title="Выберите адрес выгрузки"
             class="formStyle__AdressCard sm:text-lg md:text-xl lg:text-2xl"
             v-model="form.unloadingAddress"
           ></CardAdress>
@@ -131,7 +129,7 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
   flex-direction: column;
   margin: 4px;
   &__AdressCard {
-    width: 50%;
+    width: 20%;
   }
   &__countTime {
     display: flex;
@@ -146,7 +144,6 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
     display: flex;
     gap: 5px;
     margin: 4px;
-    width: 91%;
   }
   &__submitDiv {
     background: linear-gradient(
