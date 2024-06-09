@@ -49,6 +49,7 @@ export default {
     modelValue: {
       type: Number,
       required: true,
+      default: 1,
     },
   },
   setup(props, { emit }) {
@@ -65,8 +66,10 @@ export default {
     };
 
     const decrement = () => {
-      localValue.value = Number(localValue.value) - 1;
-      emit("update:modelValue", localValue.value);
+      if (localValue.value > 1) {
+        localValue.value = Number(localValue.value) - 1;
+        emit("update:modelValue", localValue.value);
+      }
     };
 
     return {

@@ -1,48 +1,38 @@
 <template>
-  <StylePages></StylePages>
-  <SeparatyLine></SeparatyLine>
-  <br />
-  <br />
-  <div class="SideBar_OrderForm">
-    <SliderBar></SliderBar>
-    <OrderForm></OrderForm>
+  <div id="app">
+    <HeaderStyle></HeaderStyle>
+    <FooterComponent></FooterComponent>
   </div>
-
-  <AdvantagesBlock></AdvantagesBlock>
-  <FAGBlock></FAGBlock>
-  <FromUs></FromUs>
-  <FooterComponent></FooterComponent>
 </template>
 
-<script setup>
-import { defineAsyncComponent } from "vue";
-import StylePages from "@/components/StylePages";
-import SliderBar from "@/pages/MainPages/SliderBar";
-import FromUs from "@/pages/FromUs/FromUs";
-import FAGBlock from "@/pages/FAGBlock/FaBlock";
-import AdvantagesBlock from "@/pages/Advantages/AdvantagesBlock";
+<script>
+import HeaderStyle from "@/components/HeaderStyle";
 import FooterComponent from "@/components/FooterComponent";
-
-const SeparatyLine = defineAsyncComponent(() =>
-  import("@/components/SeparatyLine")
-);
-const OrderForm = defineAsyncComponent(() =>
-  import("@/pages/MainPages/OrderForm")
-);
+export default {
+  name: "App",
+  components: {
+    HeaderStyle,
+    FooterComponent,
+  },
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
 html,
 body,
 #app {
   min-height: 100%;
   height: 1px;
-  margin: 10px 10px;
+  margin: 0px 200px;
   padding: 0px 50px;
 }
-.SideBar_OrderForm {
-  display: flex;
-  gap: 5px;
-  width: 100%;
+// Media query for screens up to 1200px
+@media (max-width: 1200px) {
+  html,
+  body,
+  #app {
+    margin: 0px auto;
+    padding: 0px 0px;
+  }
 }
 </style>

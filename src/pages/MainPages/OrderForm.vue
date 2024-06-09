@@ -16,7 +16,6 @@ const DropdownImg = defineAsyncComponent(() =>
 const CardAdress = defineAsyncComponent(() =>
   import("@/components/CardAdress")
 );
-const DropOptions = ["Онлайн", "Наличные"];
 
 const form = useForm({
   loadingAddress: "",
@@ -32,28 +31,29 @@ const form = useForm({
 const submit = () => {
   console.log(form.loadingAddress);
 };
+import carData from "@/pages/CarPark/component/CarCardData.json";
+
+const DropOptions = carData.map((item) => `${item.title} - ${item.mini_title}`);
+const DropDownImg = carData.map((item) => item.icon);
+const DropOptionsPay = ["Онлайн", "Наличные"];
 </script>
 <template>
-  <div class="allFormStyle">
-    <div class="titleForm text-normal-regular">Оформить заказ</div>
+  <div class="allFormStyle sm:text-lg md:text-xl lg:text-2xl">
+    <div class="titleForm">Оформить заказ</div>
     <div class="formStyleDiv">
       <form class="formStyle" @submit.prevent="submit">
         <br /><br />
         <div class="formStyle__inputAdress">
           <CardAdress
-            title="Введите"
-            placeholder="Адрес погрузки"
-            class="formStyle__AdressCard"
+            title="Выберите адрес погрузки"
+            class="formStyle__AdressCard sm:text-lg md:text-xl lg:text-2xl"
             v-model="form.loadingAddress"
-          ></CardAdress
-          ><span>{{ form.loadingAddress }}</span>
+          ></CardAdress>
           <CardAdress
-            title="Введите"
-            placeholder="Адрес выгрузки"
-            class="formStyle__AdressCard"
+            title="Выберите адрес выгрузки"
+            class="formStyle__AdressCard sm:text-lg md:text-xl lg:text-2xl"
             v-model="form.unloadingAddress"
-          ></CardAdress
-          ><span>{{ form.unloadingAddress }}</span>
+          ></CardAdress>
         </div>
         <DropdownImg
           buttonTextProp="Любая газель"
@@ -61,11 +61,10 @@ const submit = () => {
           :options="DropOptions"
           showIcon="true"
           v-model="form.typeCar"
+          :icon="DropDownImg"
         ></DropdownImg>
-        <span>{{ form.typeCar }}</span>
-        <div class="formStyle__countTime">
+        <div class="formStyle__countTime sm:text-lg md:text-xl lg:text-2xl">
           <AddInput title="Грузчики" v-model="form.loaderCount"></AddInput>
-          <span>{{ form.loaderCount }}</span>
           <CalendarSelect
             :selectedDates="{ date: selectedDate }"
             :computedTitle="computedTitle"
@@ -76,33 +75,30 @@ const submit = () => {
             v-model="form.selectedDate"
           >
           </CalendarSelect>
-          <span>{{ form.selectedDate }}</span>
         </div>
-        <div class="formStyle__payDay">
+        <div class="formStyle__payDay sm:text-lg md:text-xl lg:text-2xl">
           <DropdownMenu
             buttonTextProp="Оплата"
-            :options="DropOptions"
+            :options="DropOptionsPay"
             showIcon="true"
             icon="Hochel.svg"
             v-model="form.paymentMethod"
           ></DropdownMenu>
-          <span>{{ form.paymentMethod }}</span>
 
           <AddInput
             title="Время (часы)"
             v-model="form.durationHours"
           ></AddInput>
-          <span>{{ form.durationHours }}</span>
         </div>
 
-        <div class="formStyle__submitDiv">
+        <div class="formStyle__submitDiv sm:text-lg md:text-xl lg:text-2xl">
           <IntTextInput
             placeholder="+7-ххх-ххх-ххх"
             Inputype="text"
             title="Телефон"
+            v-mask="'+7-###-###-##-##'"
             v-model="form.phoneNumber"
           ></IntTextInput>
-          <span>{{ form.phoneNumber }}</span>
 
           <SummaryButton></SummaryButton>
         </div>
@@ -133,7 +129,7 @@ const submit = () => {
   flex-direction: column;
   margin: 4px;
   &__AdressCard {
-    width: 50%;
+    width: 20%;
   }
   &__countTime {
     display: flex;
@@ -148,7 +144,6 @@ const submit = () => {
     display: flex;
     gap: 5px;
     margin: 4px;
-    width: 91%;
   }
   &__submitDiv {
     background: linear-gradient(

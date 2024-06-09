@@ -4,7 +4,7 @@
       {{ number }}
     </span>
     <div class="copyButton__texts">
-      <span class="copyButton__text text-normal-regular"> Скопировать </span>
+      <div class="copyButton__text text-normal-regular">Скопировать</div>
       <img :src="require('@/assets/icons/Copy.svg')" class="copyButton__icon" />
     </div>
   </button>
@@ -49,6 +49,7 @@ const copyToClipboard = () => {
 
 <style lang="scss" scoped>
 .copyButton {
+  flex-direction: column-reverse;
   background: var(--action);
   padding: 15px 24px;
   border-radius: 10px;
@@ -77,6 +78,7 @@ const copyToClipboard = () => {
   &__number {
     color: var(--white);
     user-select: none;
+    font-size: 25px;
   }
   &:disabled {
     background: var(--gray) border-box;
@@ -89,6 +91,7 @@ const copyToClipboard = () => {
     gap: 5px;
     align-items: center;
     justify-content: flex-end;
+    margin-left: 70%;
   }
 }
 </style>
