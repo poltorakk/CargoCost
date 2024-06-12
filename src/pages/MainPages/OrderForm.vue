@@ -2,6 +2,7 @@
 import { useForm } from "@inertiajs/vue3";
 import CalendarSelect from "@/components/CalendarSelect.vue";
 import SummaryButton from "@/components/SummaryButton.vue";
+import axios from 'axios';
 import { defineAsyncComponent } from "vue";
 const DropdownMenu = defineAsyncComponent(() =>
   import("@/components/DropdownMenu")
@@ -21,17 +22,40 @@ const form = useForm({
   loadingAddress: "",
   unloadingAddress: "",
   selectedOption: "",
-  loaderCount: "",
+  loaderCount: "0",
   selectedDate: "",
   paymentMethod: "",
-  durationHours: "",
+  durationHours: "1",
   phoneNumber: "",
+  distanceBetweenAddresses: "50",
+  calculatedPrice: "..."
 });
 //Функция отправки данных
 const submit = () => {
   console.log(form.loadingAddress);
 };
 import carData from "@/pages/CarPark/component/CarCardData.json";
+
+const getPrice = async () => {
+  if (form.distanceBetweenAddresses && form.loadingAddress && form.unloadingAddress) { // проверяем, заполнены ли необходимые проге поля
+      // если город погрузки это Севастополь, то ставим в качестве "точки" город выгрузки. Иначе "точка" равна городу погрузки
+      let to = form.loadingAddress;
+      if (to == 'Севастополь') to = form.unloadingAddress;
+
+      let data = {
+          'cityLoad': to, // "точка". ГОРОД, а не полный адрес
+          'workTime': form.durationHours, // время работы, по дефолту 1 
+          'loaders': form.loaderCount, // количество грузчиков, по дефолту 0
+          'distance': form.distanceBetweenAddresses, // дистанция между пунктами погрузки и выгрузки
+      };
+      let priceCalc = (await axios.get(`https://api.tiger-park.ru/api/v2/calculatePrice?${new URLSearchParams(data).toString()}`)
+          .then(res => res.data)).price; // получение цены
+
+      priceCalc = Math.round(priceCalc * 100) / 100; // округляем до сотни
+
+      console.log(priceCalc); // отображаем значение на странице
+  }
+}
 
 const DropOptions = carData.map((item) => `${item.title} - ${item.mini_title}`);
 const DropDownImg = carData.map((item) => item.icon);
@@ -40,6 +64,7 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
 <template>
   <div class="allFormStyle sm:text-lg md:text-xl lg:text-2xl">
     <div class="titleForm">Оформить заказ</div>
+    <button @click="getPrice(form)">getPrice</button>
     <div class="formStyleDiv">
       <form class="formStyle" @submit.prevent="submit">
         <br /><br />
@@ -100,7 +125,7 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
             v-model="form.phoneNumber"
           ></IntTextInput>
 
-          <SummaryButton></SummaryButton>
+          <SummaryButton v-model="form.calculatedPrice"></SummaryButton>
         </div>
       </form>
     </div>
