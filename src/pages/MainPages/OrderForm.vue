@@ -42,7 +42,6 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
     <div class="titleForm">Оформить заказ</div>
     <div class="formStyleDiv">
       <form class="formStyle" @submit.prevent="submit">
-        <br /><br />
         <div class="formStyle__inputAdress">
           <CardAdress
             title="Выберите адрес погрузки"
@@ -107,6 +106,8 @@ const DropOptionsPay = ["Онлайн", "Наличные"];
   </div>
 </template>
 <style lang="scss" scoped>
+.allFormStyle {
+}
 .formStyleDiv {
   background-color: var(--fkwhite);
   border-bottom-left-radius: 12px;

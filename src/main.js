@@ -9,6 +9,7 @@ import ToastService from 'primevue/toastservice';
 import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
 import './assets/tailwind.css';
+import 'primeicons/primeicons.css';
 
 import router from '@/plugins/router'
 const app = createApp(App);

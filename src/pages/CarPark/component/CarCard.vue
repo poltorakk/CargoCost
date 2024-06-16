@@ -106,25 +106,31 @@ export default {
 <style lang="scss" scoped>
 .Card {
   border: 1px solid var(--darkact);
-  padding: 20px 16px;
+  padding: 20px 20px;
   border-radius: 16px;
-  box-shadow: 0 0 30px var(--light-gray);
+  box-shadow: 0 0 20px var(--light-gray);
   display: flex;
-  gap: 5px;
+  gap: 50px;
   align-items: center;
-  height: 450px;
-  width: 55%;
+  height: auto;
+  max-height: 100%;
+  width: 80%;
   margin: 0 auto;
   &__div-icon {
     padding: 16px 16px;
     border-radius: 12px;
     border: 1px solid var(--darkact);
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
   }
   &__icon {
-    width: 60px;
-    height: 60px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   &__text-title {
     font-size: 25px;
@@ -143,27 +149,36 @@ export default {
     align-items: center;
   }
   &__text-content {
+    text-align: justify;
   }
   &__type {
     display: flex;
     gap: 10px;
     flex-direction: column;
+    max-height: 100%;
+    height: auto;
   }
   &__type-item {
     border: 1px solid var(--darkact);
     display: flex;
     gap: 10px;
     border-radius: 25px;
-    padding: 16px 16px;
+    padding: 2px 5px;
     align-items: center;
+    width: 200px;
   }
   &__type-icon {
+    padding: 20px 20px;
+    max-width: 100%;
+    max-height: 100%;
     width: 60px;
     height: 60px;
-    padding: 20px 20px;
-    border: 1px solid var(--darkact);
-    border-radius: 25px;
-    box-shadow: 0 0 10px var(--gray);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__type-title {
+    font-size: 12px;
   }
   &__route-button {
     cursor: pointer;

@@ -20,11 +20,12 @@ const DownloadCard = defineAsyncComponent(() =>
       </div>
     </div>
     <div class="Footer__Icons">
-      <img
-        :src="require('@/assets/icons/TelegramIcon.jpg')"
-        class="Footer__Icon"
-      />
-      <img :src="require('@/assets/icons/VkIcon.webp')" class="Footer__Icon" />
+      <i
+        class="pi pi-telegram Footer__Icon"
+        v-tooltip="'test1'"
+        position="top"
+      ></i>
+      <i class="pi pi-whatsapp Footer__Icon"></i>
     </div>
     <div class="Footer__Dog text-normal-regular">
       @CargoCost 2024 Севастополь
@@ -62,12 +63,12 @@ body,
     gap: 5px;
   }
   &__Icon {
-    width: 45px;
-    height: 45px;
+    font-size: 35px;
+    cursor: pointer;
   }
   &__Icons {
     display: flex;
-    gap: 50px;
+    gap: 20px;
     justify-content: flex-end;
     padding: 20px 20px;
   }
