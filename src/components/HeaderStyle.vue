@@ -14,7 +14,7 @@ const openModalPhone = () => {
 </script>
 
 <template>
-  <div class="Header">
+  <div class="Header py-4 px-6 md:px-0 mx-auto">
     <div class="Header__NavigationMenu">
       <DropdownMenu
         buttonTextProp="Севастополь"
@@ -33,7 +33,7 @@ const openModalPhone = () => {
           +7 (978) 972-67-90
         </div>
         <div class="Header__Phone-button">
-          <img :src="require('@/assets/icons/Phone.svg')" />
+          <i class="pi pi-phone"></i>
         </div>
 
         <ModalPhone ref="modal" />
@@ -54,15 +54,36 @@ const openModalPhone = () => {
             class="Header-bottom__logo"
         /></router-link>
       </div>
-      <router-link to="/" class="router__item text-normal-regular"
-        >Главная</router-link
+      <router-link
+        :to="{ name: 'House' }"
+        :class="[
+          'router__item',
+          'text-normal-regular',
+          { 'router-link-active-class': $route.name === 'House' },
+        ]"
       >
-      <router-link to="/about" class="router__item text-normal-regular"
-        >О компании</router-link
+        Главная
+      </router-link>
+      <router-link
+        :to="{ name: 'About' }"
+        :class="[
+          'router__item',
+          'text-normal-regular',
+          { 'router-link-active-class': $route.name === 'About' },
+        ]"
       >
-      <router-link to="/car" class="router__item text-normal-regular"
-        >Наш Автопарк</router-link
+        О компании
+      </router-link>
+      <router-link
+        :to="{ name: 'Car' }"
+        :class="[
+          'router__item',
+          'text-normal-regular',
+          { 'router-link-active-class': $route.name === 'Car' },
+        ]"
       >
+        Наш Автопарк
+      </router-link>
     </nav>
     <router-view></router-view>
   </div>
@@ -73,11 +94,17 @@ body,
 #app {
   background-color: var(--white);
 }
+.router-link-active-class {
+  background-color: var(--back);
+  border-radius: 15px;
+  padding: 5px 15px;
+}
 .Header {
   display: flex;
   align-items: center;
   width: 100%;
   gap: 15px;
+
   &__NavigationMenu {
     display: flex;
     width: 100%;
@@ -114,6 +141,7 @@ body,
     cursor: pointer;
   }
   &__Phone {
+    font-size: 16px;
     font-weight: normal;
     color: var(--action);
     text-decoration: none !important;
@@ -127,7 +155,11 @@ body,
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
+}
+i.pi.pi-phone {
+  color: white;
 }
 .router {
   margin-left: 5%;

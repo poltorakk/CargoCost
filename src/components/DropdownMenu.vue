@@ -148,7 +148,7 @@ export default {
   gap: 10px;
   color: var(--letters);
   &__small {
-    min-width: 150px;
+    min-width: 172px;
   }
 
   &__medium {

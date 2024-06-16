@@ -8,15 +8,17 @@ import Car from '@/pages/CarPark/CarPark.vue'
 
 const routes = [{
         path: '/',
-        name: 'MainPages',
+        name: 'House',
         component: MainPages
     },
     {
         path: '/about',
+        name: 'About',
         component: About
     },
     {
         path: '/car',
+        name: 'Car',
         component: Car
     }
 ]

@@ -257,7 +257,7 @@ export default {
 
     const placeholderText = computed(() => {
       if (!selectedDates.value.date) {
-        return "Выберите дату";
+        return "08.05.2024";
       }
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -630,7 +630,7 @@ export default {
   height: 100%;
   &__text {
     display: flex;
-    gap: 10px;
+    gap: 4px;
     justify-content: center;
     flex-direction: column;
   }

@@ -1,7 +1,7 @@
 <template>
   <button class="summary-button">
     <span class="summary-button__text text-normal-regular"> Оформить за </span>
-    <span class="summary-button__summary text-normal-regular"> 1000</span>
+    <span class="summary-button__summary text-normal-regular">1440 </span>
   </button>
 </template>
 
