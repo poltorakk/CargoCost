@@ -1,5 +1,5 @@
 <template>
-  <button class="primary-button">
+  <button type="button" class="primary-button">
     <span class="primary-button__text text-normal-regular"> {{ title }} </span>
     <div
       :style="{
